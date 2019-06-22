@@ -12,3 +12,7 @@ The file Banana_Processor.py loads images of bananas (and sometimes other fruits
 After loading the training set of banana images, this file calculates the mean and standard deviation of this dataset for each pixel/color parameter combination. For example, the parameter "red" at the pixel (17, 36) takes 450 values (including repeats) in the 450 images in the dataset, and so we can calculate the mean and standard deviation of these values. Since each pixel/parameter combination has its own mean, we can create an image representing these means, and do the same for the standard deviations: 
 
 ![Banana training set mean and standard deviation](https://i.imgur.com/dTOd1iH.png)
+
+Once we have these means and standard deviations, for each pixel/parameter combination we can choose a random value (from 0 to 255) based on the normal distribution associated with that pixel/parameter. In this way we can create random images which are statistically similar to banana images: 
+
+![Three statistical bananas](https://i.imgur.com/eSt6qqd.png)
