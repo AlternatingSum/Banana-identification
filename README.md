@@ -33,4 +33,18 @@ The file Banana_Identification_Network.py performs gradient descent to train a c
 Once trained, this neural network performed perfectly (304/304) on the testing set. 
 
 ## Using the neural network and Gaussian model to classify images
-The neural network described above never saw a non-banana fruit in its training. 
+The neural network described above never saw a non-banana fruit in its training, and can't necessarily be expected to label such an image as a non-banana on its own. However, we can use the neural network together with the multivariate Gaussian model of the banana images to obtain more information about new types of images. 
+
+The class Neural_Network includes a method called two_factor_prediction. This method asks two questions of a given input: 
+
+1. Is the neural network's prediction for this input above a certain cutoff? 
+2. Is the distance from the image to the banana mean (measured after scaling each parameter by the standard deviation for that parameter) below a certain cutoff? In other words, does this image come from the banana-centric ellipsoid described above? 
+
+If the answer to both questions is yes, this method labels the image a banana. If the answer to either question is no, this method labels the image a non-banana. 
+
+The performance of this method was mixed. We used a cutoff of 0.8 for the neural network, and a cutoff of 5.0 for the Gaussian distance. With these cutoffs the method labeled only 85% of bananas in the testing set as bananas. (In fairness, the testing set and training set weren't chosen randomly from the same batch of images, and have some noticeable differences as a result.) 
+
+The method did well on apples, including apples with mixed red and yellow coloration. For apples from both the "Apple Crimson Snow" folder and the "Apple Red Yellow 1" folder it correctly classified more than 99% of images as non-bananas. For pears, it classified 79% of images as non-bananas. Carambulas (yellow fruits which often appear elongated) were more challenging, and the method classified only 61% as non-bananas. 
+
+## Future approaches
+It may be possible to improve the approach described in the last section, to create a system which can reliably classify types of images it hasn't seen before. Here are two possible tactics: 
