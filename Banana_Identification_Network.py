@@ -113,11 +113,11 @@ bananas = (2*bananas/255.0) - 1
 
 banana_network_1.change_num_examples(1)
 
-new_vector = banana_network_1.input_gradient_descent(random_input, mean, st_dev, 10.0, 0.001, 1000)
+#new_vector = banana_network_1.input_gradient_descent(random_input, mean, st_dev, 10.0, 0.001, 1000)
 
-new_image = banana.vector_to_image(new_vector)
-plt.imshow(new_image)
-plt.show()
+#new_image = banana.vector_to_image(new_vector)
+#plt.imshow(new_image)
+#plt.show()
 
 
 """The following code uses both the neural network and the multivariate Gaussian model of the input space
