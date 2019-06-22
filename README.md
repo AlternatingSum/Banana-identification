@@ -16,3 +16,7 @@ After loading the training set of banana images, this file calculates the mean a
 Once we have these means and standard deviations, for each pixel/parameter combination we can choose a random value (from 0 to 255) based on the normal distribution associated with that pixel/parameter. In this way we can create random images which are statistically similar to banana images: 
 
 ![Three statistical bananas](https://i.imgur.com/eSt6qqd.png)
+
+We then use these randomly generated "statistical bananas" as non-banana images to train a neural network. As as result, all of the training images will come from the same ellipsoid in the 30,000 dimensional input space. Determining whether an image falls in this banana-centric ellipsoid is easy, and we don't need a neural network to do it. But distinguishing a banana from a non-banana within this ellipsoid is more challenging, and this is a more appropriate task for a convolutional neural network. 
+
+## Training the banana identification network
