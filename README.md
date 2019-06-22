@@ -20,3 +20,17 @@ Once we have these means and standard deviations, for each pixel/parameter combi
 We then use these randomly generated "statistical bananas" as non-banana images to train a neural network. As as result, all of the training images will come from the same ellipsoid in the 30,000 dimensional input space. Determining whether an image falls in this banana-centric ellipsoid is easy, and we don't need a neural network to do it. But distinguishing a banana from a non-banana within this ellipsoid is more challenging, and this is a more appropriate task for a convolutional neural network. 
 
 ## Training the banana identification network
+The class Neural_Network includes a method to perform gradient descent. This method automatically adjusts the learning rate - lowering it significantly if the cost increases, increasing it significantly if the cost barely decreases, and increasing it slightly if the cost decreases noticeably. If the neural network appears to be stuck at a saddle point (based on a small gradient but high cost), the program searches random perturbations of the current neural network for the one with the lowest cost, and resumes gradient descent there. 
+
+The file Banana_Identification_Network.py performs gradient descent to train a convolutional neural network which can distinguish banana images from random statistical bananas. This neural network has five layers: 
+
+1. A convolutional layer with 10x10 filters, stride 5, and depth 5. 
+2. A convolutional layer with 3x3 filters, stride 2, and depth 9. 
+3. A fully connected layer with 500 neurons. 
+4. A fully connected layer with 10 neurons. 
+5. A fully connected layer with 1 neuron. 
+
+Once trained, this neural network performed perfectly (304/304) on the testing set. 
+
+## Using the neural network and Gaussian model to classify images
+The neural network described above never saw a non-banana fruit in its training. 
