@@ -1,4 +1,4 @@
-# Banana-identification
+# Banana identification
 This program constructs a class to implement neural networks with both convolutional layers and fully connected layers. It then trains a convolutional neural network to distinguish images of bananas from randomly generated images which are statistically similar to bananas. This neural network performs perfectly (304/304 correct predictions on the testing set) for types of images which are similar to (but distinct from) those used in its training. 
 
 ## Neural network class
