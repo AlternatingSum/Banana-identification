@@ -38,7 +38,7 @@ The neural network described above never saw a non-banana fruit in its training,
 The class Neural_Network includes a method called two_factor_prediction. This method asks two questions of a given input: 
 
 1. Is the neural network's prediction for this input above a certain cutoff? 
-2. Is the distance from the image to the banana mean (measured after scaling each parameter by the standard deviation for that parameter) below a certain cutoff? In other words, does this image come from the banana-centric ellipsoid described above? 
+2. Is the distance from the image to the banana mean (measured after dividing each parameter of the distance by the standard deviation for that parameter) below a certain cutoff? In other words, does this image come from the banana-centric ellipsoid described above? 
 
 If the answer to both questions is yes, this method labels the image a banana. If the answer to either question is no, this method labels the image a non-banana. 
 
