@@ -61,7 +61,8 @@ banana_network_0 = nn.Neural_Network(weight_matrices, connection_matrices, num_t
 #print banana_network_0.cost(prediction, test_output)
 
 
-"""The following code loads a trained neural network for banana classification."""
+"""The following code loads a trained neural network for banana classification.
+NOTE: The weight matrices are compressed, and must be unzipped before they can be loaded here."""
 
 
 connection_matrix_0 = nn.build_connection_matrix(100, 3, 10, 5, 5)
